@@ -1,0 +1,29 @@
+# Slicing-aware inference study — ships (generalization / "when NOT to slice" contrast).
+# The Kaggle ships export is already YOLO-format at original resolution (relatively small
+# images), so native and sliced run on data/processed/ships/images/val and GT comes from the
+# normalised YOLO labels (gt_format: yolo). Slicing small images is expected to help little —
+# a useful deployment-guidance result in its own right.
+dataset: configs/datasets/ships.yaml
+gt_format: yolo
+images_dir: data/processed/ships/images/val
+labels_dir: data/processed/ships/labels/val
+split: val
+task: detect
+conf: 0.25
+iou: 0.7
+max_det: 10000                   # per-image / per-tile detection cap (Ultralytics default 300); ships never exceed 209
+
+
+models:
+  - {name: yolov8m_ships, weights: runs/detect/results/raw/yolov8m_ships/weights/best.pt}
+  - {name: yolo11m_ships, weights: runs/detect/results/raw/yolo11m_ships/weights/best.pt}
+  - {name: yolo26m_ships, weights: runs/detect/results/raw/yolo26m_ships/weights/best.pt}
+
+native_imgsz: [640, 1024]
+
+policies:
+  - {tile: 512, overlap: 0.10}
+  - {tile: 512, overlap: 0.20}
+  - {tile: 640, overlap: 0.20}
+
+merge: {method: nms_class_aware, iou: 0.55}

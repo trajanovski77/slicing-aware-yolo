@@ -1,0 +1,7 @@
+path: data/processed/whu
+train: images/train
+val: images/val
+test: images/test
+task: detect
+names:
+  0: building

@@ -1,0 +1,13 @@
+ultralytics>=8.3.0
+numpy>=1.24
+opencv-python>=4.8
+Pillow>=10.0
+PyYAML>=6.0
+pandas>=2.0
+matplotlib>=3.7
+torch>=2.0
+torchvision>=0.15
+tqdm>=4.65
+pycocotools>=2.0.7
+pytest>=7.4
+# Optional (correctness cross-check only): sahi>=0.11.15

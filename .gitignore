@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.pt
+.venv/
+.pytest_cache/
+.ultralytics/
+data/raw/*
+data/processed/*
+results/predictions/*
+results/coco/*
+runs/
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!results/predictions/.gitkeep
+!results/coco/.gitkeep

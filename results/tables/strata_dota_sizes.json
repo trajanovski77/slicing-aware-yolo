@@ -1,0 +1,24 @@
+{
+ "n_images": 458,
+ "n_boxes": 69565,
+ "smallest": [
+  475,
+  546
+ ],
+ "largest": [
+  13383,
+  4287
+ ],
+ "long_side_min": 511,
+ "long_side_median": 2143.5,
+ "long_side_max": 13383,
+ "mp_median": 3.2539065000000003,
+ "mp_mean": 7.034923934497817,
+ "n_long_side_gt_1024": 400,
+ "n_long_side_gt_2600": 178,
+ "n_long_side_gt_6200": 16,
+ "n_images_gt_300_boxes": 48,
+ "share_boxes_in_dense_scenes": 0.6744052325163516,
+ "difficult_share": 0.511190972471789,
+ "small_share_coco": 0.7229641342629196
+}

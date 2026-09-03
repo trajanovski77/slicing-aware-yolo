@@ -1,0 +1,33 @@
+# Slicing-aware inference study — DOTA (primary, high-resolution small-object dataset).
+# Native and sliced inference run on the ORIGINAL untiled images (data/raw/DOTA), NOT the
+# 1024px training tiles. GT is built from the raw labelTxt (HBB) via gt_format: dota_raw.
+dataset: configs/datasets/dota.yaml
+gt_format: dota_raw
+raw_dir: data/raw/DOTA          # original images + labelTxt (labelTxt-v1.x hbb)
+split: val
+task: detect
+conf: 0.25                       # operating confidence for P/R/F1 + detection dumps
+iou: 0.7                         # per-tile / per-image Ultralytics NMS IoU
+max_det: 10000                   # per-image (native) / per-tile (sliced) detection cap; Ultralytics'
+                                 # default 300 truncates dense DOTA scenes (48/458 val scenes > 300 GT)
+
+# Trained weights from the prior study (confirm exact on-server paths on Day 1).
+models:
+  - {name: yolov8m_dota, weights: runs/detect/results/raw/yolov8m_dota/weights/best.pt}
+  - {name: yolo11m_dota, weights: runs/detect/results/raw/yolo11m_dota/weights/best.pt}
+  - {name: yolo26m_dota, weights: runs/detect/results/raw/yolo26m_dota/weights/best.pt}
+
+# Native baseline at several resolutions to separate "slicing" from "more pixels".
+native_imgsz: [640, 1024, 1536]
+
+# Slicing sweep (tile size in px; overlap as a fraction of tile size).
+policies:
+  - {tile: 512, overlap: 0.10}
+  - {tile: 512, overlap: 0.20}
+  - {tile: 640, overlap: 0.10}
+  - {tile: 640, overlap: 0.20}
+  - {tile: 1024, overlap: 0.10}   # slice at the trained tile scale (train/inference match)
+  - {tile: 1024, overlap: 0.20}
+
+# Cross-tile merge. method: nms_class_aware | nms_global | wbf
+merge: {method: nms_class_aware, iou: 0.55}

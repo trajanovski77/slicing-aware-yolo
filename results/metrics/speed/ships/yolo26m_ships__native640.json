@@ -1,0 +1,27 @@
+{
+  "concurrent_gpu_load": {
+    "device": 0,
+    "mem_used_max_mib": 960.0,
+    "mem_used_median_mib": 960.0,
+    "samples": 22,
+    "util_max_pct": 75.0,
+    "util_median_pct": 56.5,
+    "util_p10_pct": 0.0
+  },
+  "concurrent_util_median_pct": 56.5,
+  "dataset": "ships",
+  "fps": 43.90225925997978,
+  "image_count": 100,
+  "imgsz": 640,
+  "iterations": 100,
+  "latency_mean_ms": 22.777871044818312,
+  "latency_p50_ms": 13.95374140702188,
+  "latency_p95_ms": 20.288684859406185,
+  "latency_std_ms": 40.97404854954687,
+  "mode": "native",
+  "model": "yolo26m_ships",
+  "sweep_order": "interleaved",
+  "tiles_per_image": 1.0,
+  "variant": "native640",
+  "warmup": 10
+}

@@ -1,0 +1,51 @@
+{
+  "concurrent_gpu_load": {
+    "device": 0,
+    "mem_used_max_mib": 960.0,
+    "mem_used_median_mib": 960.0,
+    "samples": 22,
+    "util_max_pct": 75.0,
+    "util_median_pct": 56.5,
+    "util_p10_pct": 0.0
+  },
+  "git_commit": "415cf6bdc77d85db3c0d0542d7c244b225ecf080",
+  "packages": {
+    "Pillow": "12.3.0",
+    "PyYAML": "5.4.1",
+    "matplotlib": "3.10.9",
+    "numpy": "1.26.4",
+    "opencv-python": "5.0.0.93",
+    "pandas": "2.2.3",
+    "torch": "2.4.1",
+    "torchvision": "0.19.1",
+    "ultralytics": "8.4.126"
+  },
+  "platform": "Linux-5.15.0-141-generic-x86_64-with-glibc2.35",
+  "processor": "x86_64",
+  "python": "3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]",
+  "torch": {
+    "cuda_available": true,
+    "cuda_device_count": 2,
+    "cuda_version": "12.1",
+    "devices": [
+      {
+        "capability": [
+          7,
+          5
+        ],
+        "index": 0,
+        "memory_total": 50752192512,
+        "name": "Quadro RTX 8000"
+      },
+      {
+        "capability": [
+          7,
+          5
+        ],
+        "index": 1,
+        "memory_total": 50752192512,
+        "name": "Quadro RTX 8000"
+      }
+    ]
+  }
+}

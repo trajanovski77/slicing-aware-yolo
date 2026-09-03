@@ -1,0 +1,30 @@
+{
+  "concurrent_gpu_load": {
+    "device": 0,
+    "mem_used_max_mib": 3240.0,
+    "mem_used_median_mib": 3240.0,
+    "samples": 737,
+    "util_max_pct": 91.0,
+    "util_median_pct": 0.0,
+    "util_p10_pct": 0.0
+  },
+  "concurrent_util_median_pct": 0.0,
+  "dataset": "dota",
+  "fps": 1.1892819761261983,
+  "image_count": 100,
+  "iterations": 100,
+  "latency_mean_ms": 840.8434837777168,
+  "latency_p50_ms": 154.07760452944785,
+  "latency_p95_ms": 1206.722731713671,
+  "latency_std_ms": 3157.09872101866,
+  "merge": "nms_class_aware",
+  "mode": "sliced",
+  "model": "yolo26m_dota",
+  "overlap": 0.2,
+  "policy": "tile1024_ov20",
+  "sweep_order": "interleaved",
+  "tile_size": 1024,
+  "tiles_per_image": 13,
+  "variant": "tile1024_ov20",
+  "warmup": 10
+}

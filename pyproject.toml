@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "slicing-aware-yolo"
+version = "0.1.0"
+description = "Slicing-aware (tiled) YOLO inference vs. native full-image inference for small-object detection in remote-sensing imagery."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "ultralytics>=8.3.0",
+  "numpy>=1.24",
+  "opencv-python>=4.8",
+  "Pillow>=10.0",
+  "PyYAML>=6.0",
+  "pandas>=2.0",
+  "matplotlib>=3.7",
+  "torch>=2.0",
+  "torchvision>=0.15",
+  "tqdm>=4.65",
+  "pycocotools>=2.0.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4"]
+sahi = ["sahi>=0.11.15"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

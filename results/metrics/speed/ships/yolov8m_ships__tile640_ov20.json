@@ -1,0 +1,30 @@
+{
+  "concurrent_gpu_load": {
+    "device": 0,
+    "mem_used_max_mib": 960.0,
+    "mem_used_median_mib": 960.0,
+    "samples": 22,
+    "util_max_pct": 75.0,
+    "util_median_pct": 56.5,
+    "util_p10_pct": 0.0
+  },
+  "concurrent_util_median_pct": 56.5,
+  "dataset": "ships",
+  "fps": 43.26673754459652,
+  "image_count": 100,
+  "iterations": 100,
+  "latency_mean_ms": 23.112442877609283,
+  "latency_p50_ms": 13.720288057811558,
+  "latency_p95_ms": 41.22929634759202,
+  "latency_std_ms": 39.816369669245105,
+  "merge": "nms_class_aware",
+  "mode": "sliced",
+  "model": "yolov8m_ships",
+  "overlap": 0.2,
+  "policy": "tile640_ov20",
+  "sweep_order": "interleaved",
+  "tile_size": 640,
+  "tiles_per_image": 1.27,
+  "variant": "tile640_ov20",
+  "warmup": 10
+}
