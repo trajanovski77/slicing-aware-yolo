@@ -125,12 +125,14 @@ def fig1(dota: dict, out_pdf: Path) -> None:
                    facecolors="none" if hollow else MODEL_COLOR[fam],
                    edgecolors=MODEL_COLOR[fam], linewidths=0.9, zorder=3)
         if kind == "native" and fam == "yolo11m":
-            # Centred below the marker: the three detectors sit within a few ms of each
+            # Centred on the marker: the three detectors sit within a few ms of each
             # other at each native size, so a label offset to the right lands on top of a
-            # neighbouring point.
-            ax.annotate(variant[len("native"):], (x, y), xytext=(0, -10),
+            # neighbouring point. Below the marker, except at 640, the lowest cluster, where
+            # a label below falls outside the axes onto the x tick labels.
+            above = variant == "native640"
+            ax.annotate(variant[len("native"):], (x, y), xytext=(0, 8 if above else -10),
                         textcoords="offset points", fontsize=6.5, color="#333333",
-                        ha="center", va="top")
+                        ha="center", va="bottom" if above else "top")
     ax.set_xlabel("Median latency per image (ms, batch 1)")
     ax.set_ylabel("mAP@[50:95]")
     ax.grid(True, alpha=0.25, linewidth=0.5)
